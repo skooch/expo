@@ -1,5 +1,5 @@
 import { UintBasedTypedArray, IntBasedTypedArray } from 'expo-modules-core';
-import { CryptoDigestAlgorithm, CryptoDigestOptions, Digest } from './Crypto.types';
+import { CryptoDigestAlgorithm, CryptoDigestOptions, Digest, KeyGenParams } from './Crypto.types';
 export * from './Crypto.types';
 /**
  * Generates completely random bytes using native implementations. The `byteCount` property
@@ -80,4 +80,18 @@ export declare function randomUUID(): string;
  * ```
  */
 export declare function digest(algorithm: CryptoDigestAlgorithm, data: BufferSource): Promise<ArrayBuffer>;
+/**
+ * generateKey()
+ *
+ * @param algorithm
+ * @param extractable
+ * @param keyUsages
+ * @return The input array filled with cryptographically secure random values.
+ *
+ * @example
+ * ```ts
+ *
+ * ```
+ */
+export declare function generateKey<T extends IntBasedTypedArray | UintBasedTypedArray>(algorithm: KeyGenParams, extractable: Boolean, keyUsage: T): CryptoKey;
 //# sourceMappingURL=Crypto.d.ts.map

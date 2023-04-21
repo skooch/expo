@@ -85,3 +85,7 @@ private class FailedGeneratingRandomBytesException: GenericException<OSStatus> {
     "Generating random bytes has failed with OSStatus code: \(param)"
   }
 }
+
+private func generateKey(algorithm: KeyGenParams, extractable: Bool, keyUsages: TypedArray) throws -> CryptoKey {
+    return CryptoKey()
+}

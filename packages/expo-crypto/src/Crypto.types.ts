@@ -56,3 +56,7 @@ export type CryptoDigestOptions = {
 
 // @docsMissing
 export type Digest = string;
+
+export type KeyGenParams = {}
+
+export type CryptoKey = {}

@@ -49,4 +49,6 @@ export type CryptoDigestOptions = {
     encoding: CryptoEncoding;
 };
 export type Digest = string;
+export type KeyGenParams = {};
+export type CryptoKey = {};
 //# sourceMappingURL=Crypto.types.d.ts.map

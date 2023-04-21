@@ -23,6 +23,7 @@ class CryptoModule : Module() {
     Function("randomUUID") {
       UUID.randomUUID().toString()
     }
+    Function("generateKey", this@CryptoModule::generateKey)
   }
 
   private fun getRandomBase64String(randomByteCount: Int): String {
@@ -60,5 +61,9 @@ class CryptoModule : Module() {
     val array = ByteArray(typedArray.byteLength)
     secureRandom.nextBytes(array)
     typedArray.write(array, typedArray.byteOffset, typedArray.byteLength)
+  }
+
+  private fun generateKey(algorithm: KeyGenParams, extractable: Boolean, keyUsages: TypedArray): CryptoKey<Any> {
+    return CryptoKey<Any>()
   }
 }

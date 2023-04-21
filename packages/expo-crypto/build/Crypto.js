@@ -188,4 +188,20 @@ export function digest(algorithm, data) {
         }
     });
 }
+/**
+ * generateKey()
+ *
+ * @param algorithm
+ * @param extractable
+ * @param keyUsages
+ * @return The input array filled with cryptographically secure random values.
+ *
+ * @example
+ * ```ts
+ *
+ * ```
+ */
+export function generateKey(algorithm, extractable, keyUsage) {
+    return ExpoCrypto.generateKey(algorithm, extractable, keyUsage);
+}
 //# sourceMappingURL=Crypto.js.map

@@ -1,5 +1,5 @@
 import * as Crypto from 'expo-crypto';
-import { CryptoDigestAlgorithm, CryptoEncoding } from 'expo-crypto';
+import { CryptoDigestAlgorithm, CryptoEncoding, KeyGenParams, CryptoKey } from 'expo-crypto';
 import React from 'react';
 import { ScrollView, StyleSheet, Text } from 'react-native';
 
@@ -123,6 +123,28 @@ const DIGEST: FunctionDescription = {
   renderAdditionalResult: (result: ArrayBuffer) => {
     return <Text>{new Uint8Array(result).map((byte, idx) => Number(byte)).join(', ')}</Text>;
   },
+};
+
+const GENERATE_KEY: FunctionDescription = {
+  name: 'generateKey',
+  parameters: [
+    {
+      name: 'algorithm',
+      type: 'object',
+      properties: [],
+    },
+    {
+      name: 'extractable',
+      type: 'boolean',
+      initial: false,
+    },
+    {
+      name: 'keyUsage',
+      type: 'object',
+      properties: [],
+    },
+  ],
+  actions: Crypto.generateKey,
 };
 
 const FUNCTIONS_DESCRIPTIONS = [

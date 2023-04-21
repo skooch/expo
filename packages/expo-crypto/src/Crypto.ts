@@ -1,7 +1,7 @@
 import { toByteArray } from 'base64-js';
 import { UnavailabilityError, UintBasedTypedArray, IntBasedTypedArray } from 'expo-modules-core';
 
-import { CryptoDigestAlgorithm, CryptoEncoding, CryptoDigestOptions, Digest } from './Crypto.types';
+import { CryptoDigestAlgorithm, CryptoEncoding, CryptoDigestOptions, Digest, KeyGenParams } from './Crypto.types';
 import ExpoCrypto from './ExpoCrypto';
 
 declare const global: any;
@@ -218,4 +218,23 @@ export function digest(algorithm: CryptoDigestAlgorithm, data: BufferSource): Pr
       reject(error);
     }
   });
+}
+
+/**
+ * generateKey()
+ *
+ * @param algorithm
+ * @param extractable
+ * @param keyUsages
+ * @return The input array filled with cryptographically secure random values.
+ *
+ * @example
+ * ```ts
+ * 
+ * ```
+ */
+export function generateKey<T extends IntBasedTypedArray | UintBasedTypedArray>(
+  algorithm: KeyGenParams, extractable: Boolean, keyUsage: T
+): CryptoKey {
+  return ExpoCrypto.generateKey(algorithm, extractable, keyUsage);
 }
